@@ -24,7 +24,13 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "deploy": "node start.js",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:drop": "sequelize db:drop",
+    "db:create": "sequelize db:create",
+    "db:reset": "run-s db:drop db:create"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
