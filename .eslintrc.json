@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "airbnb-base",
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "no-unused-vars":"off", // Para no olvidar cosas que queremos usar después
+        "linebreak-style": "off", // Para que no se queje de los saltos de línea
+        "no-console": "off", // Para poder realizar logs como manera de debug
+        "import/no-dynamic-require": "off", // Por el funcionamiento de Koa
+        "global-require": "off", // No nos parece necesario,
+        "no-restricted-syntax": "off", // Para poder iterar sobre los colores
+        // No lo consideramos un problema relevante, nos ayuda harto en temas de código asíncrono
+        "no-await-in-loop": "off" 
+    }
+}
