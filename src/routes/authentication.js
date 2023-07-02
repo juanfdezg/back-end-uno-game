@@ -1,11 +1,11 @@
 const Router = require("koa-router");
 var jwt = require("jsonwebtoken");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
+const bcrypt = require("bcrypt");
 
 dotenv.config();
 
 const router = new Router();
-
 
 // Esta request sirve para crear un usuario
 router.post("authentication.signup", "/signup", async (ctx) => {
@@ -17,10 +17,12 @@ router.post("authentication.signup", "/signup", async (ctx) => {
     return;
   }
   try {
+    const saltRounds = 10;
+    const hashPassword = await bcrypt.hash(authInfo.password, saltRounds);
     user = await ctx.orm.User.create({
       username: authInfo.username,
       mail: authInfo.email,
-      password: authInfo.password,
+      password: hashPassword,
     });
   } catch (error) {
     ctx.body = error;
@@ -49,7 +51,8 @@ router.post("authentication.login", "/login", async (ctx) => {
     ctx.status = 400;
     return;
   }
-  if (user.password == authInfo.password) {
+  const validPassword = await bcrypt.compare(authInfo.password, user.password);
+  if (validPassword) {
     // Generamos el token JWT
     const expirationSeconds = 1 * 60 * 60 * 24; // 1 día en segundos
     const JWT_PRIVATE_KEY = process.env.JWT_SECRET;
@@ -57,17 +60,17 @@ router.post("authentication.login", "/login", async (ctx) => {
       id: user.id,
       username: user.username, // Incluimos el username en el payload del token
       mail: user.mail,
-      scope: ["user"]
+      scope: ["user"],
     };
     const token = jwt.sign(tokenPayload, JWT_PRIVATE_KEY, {
       subject: user.id.toString(),
-      expiresIn: expirationSeconds
+      expiresIn: expirationSeconds,
     });
 
     ctx.body = {
       access_token: token,
       token_type: "Bearer",
-      expires_in: expirationSeconds
+      expires_in: expirationSeconds,
     };
     ctx.status = 200;
   } else {
