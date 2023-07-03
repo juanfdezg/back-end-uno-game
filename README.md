@@ -3,26 +3,32 @@
 # Entrega 2 Proyecto: Backend
 
 ## UNO Wild Card Game
+
 Este proyecto consiste en el desarrollo del backend del juego UNO Wild Card Game, el cual está
 basado en el popular juego de cartas UNO. El objetivo es proporcionar una API que permita a los
-usuarios jugar partidas interactivas de UNO Wild.
+usuarios jugar partidas interactivas de UNO Wild. Para probar la aplicación ingresar al siguiente 
+link ([UNO Wild Card Game](https://main--reliable-profiterole-b8a305.netlify.app/)). En este [repositorio](https://github.com/juanfdezg/front-end-uno-game) puedes encontrar el código para el Frontend.
 
 ## Características principales
+
 - Creación y gestión de partidas de UNO Wild.
 - Asignación de cartas a los jugadores.
 - Implementación de las reglas del juego, como jugar cartas, robar cartas, cambiar
-de turno, etc.
+  de turno, etc.
 - Manejo de eventos especiales del juego, como cartas especiales y cambios de color.
 - Sistema de puntuación para determinar el ganador de cada partida.
 
 # Documentación de la API
+
 La API ofrece endpoints que permiten a los usuarios realizar acciones como unirse a una partida,
-jugar o robar una carta, pasar de turno, ver el estado de la partida y obtener información sobre las 
-cartas disponibles. Para acceder a la documentación completa de la API, puedes ingresar a 
+jugar o robar una carta, pasar de turno, ver el estado de la partida y obtener información sobre las
+cartas disponibles. Para acceder a la documentación completa de la API, puedes ingresar a
 la siguiente [colección de Postman](https://documenter.getpostman.com/view/27784793/2s93sW9FiY).
 
 ## Estructura
+
 El proyecto sigue la siguiente estructura de directorios y archivos:
+
 <pre>
 .
 ├── README.md
@@ -115,9 +121,10 @@ El proyecto sigue la siguiente estructura de directorios y archivos:
     sudo nano /etc/postgresql/12/main/pg_hba.conf
 </pre>
 
-* Para más información, se puede consultar el siguiente [link](https://itslinuxfoss.com/fix-postgresql-password-authentication-failed-for-user/).
+- Para más información, se puede consultar el siguiente [link](https://itslinuxfoss.com/fix-postgresql-password-authentication-failed-for-user/).
 
 ## Contenido del archivo .env
+
 <pre>
 DB_USERNAME = grupo_daltonicos
 DB_PASSWORD = daltonicos
@@ -126,7 +133,8 @@ DB_HOST = 'localhost'
 </pre>
 
 # Pasos a seguir para crear modelos y correr las migraciones:
-1. Crear el modelo ( *NOMBRE_MODELO* la primera letra tiene que ser en mayúscula):
+
+1. Crear el modelo ( _NOMBRE_MODELO_ la primera letra tiene que ser en mayúscula):
 <pre>
     yarn sequilize-cli model:generate --name NOMBRE_MODELO 
     --attributes atr1:tipo,atr2:tipo,atr3:tipo
@@ -137,7 +145,7 @@ DB_HOST = 'localhost'
     yarn sequelize-cli db:migrate
 </pre>
 
-3. Crear las semillas ( *NOMBRE_MODELO* la primera letra **no** tiene que ser en mayúscula):
+3. Crear las semillas ( _NOMBRE_MODELO_ la primera letra **no** tiene que ser en mayúscula):
 <pre>
     yarn sequelize-cli seed:generate --name seed-NOMBRE_MODELOs
 </pre>
@@ -160,7 +168,6 @@ DB_HOST = 'localhost'
     \l
 </pre>
 
-
 # Para ejecutar la API:
 
 1. Instalar las dependencias:
@@ -173,14 +180,14 @@ DB_HOST = 'localhost'
     yarn dev
 </pre>
 
-
 # Fuentes de ayuda y Recursos Utilizados
-Para la realización de este proyecto, fueron de ayuda las cápsulas y el material del curso 
-"Tecnologías y Aplicaciones Web". Para obtener información técnica más detallada sobre las 
-tecnologías utilizadas, se consultó la documentación en línea proporcionada por 
-[DevDocs API Documentation](https://devdocs.io/). También fue de ayuda ChatGPT y GitHub Copilot 
+
+Para la realización de este proyecto, fueron de ayuda las cápsulas y el material del curso
+"Tecnologías y Aplicaciones Web". Para obtener información técnica más detallada sobre las
+tecnologías utilizadas, se consultó la documentación en línea proporcionada por
+[DevDocs API Documentation](https://devdocs.io/). También fue de ayuda ChatGPT y GitHub Copilot
 para la resolución de dudas y mejorar la eficiencia y precisión en el desarrollo del código.
 
-Se utilizó ESLint para mantener la consistencia y calidad del código, aplicando reglas y 
-convenciones de estilo de Airbnb. Esto ayudó a identificar y corregir posibles errores o 
+Se utilizó ESLint para mantener la consistencia y calidad del código, aplicando reglas y
+convenciones de estilo de Airbnb. Esto ayudó a identificar y corregir posibles errores o
 malas prácticas en el código.
