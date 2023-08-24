@@ -123,15 +123,6 @@ El proyecto sigue la siguiente estructura de directorios y archivos:
 
 - Para más información, se puede consultar el siguiente [link](https://itslinuxfoss.com/fix-postgresql-password-authentication-failed-for-user/).
 
-## Contenido del archivo .env
-
-<pre>
-DB_USERNAME = grupo_daltonicos
-DB_PASSWORD = daltonicos
-DB_NAME = unogame_db
-DB_HOST = 'localhost'
-</pre>
-
 # Pasos a seguir para crear modelos y correr las migraciones:
 
 1. Crear el modelo ( _NOMBRE_MODELO_ la primera letra tiene que ser en mayúscula):
